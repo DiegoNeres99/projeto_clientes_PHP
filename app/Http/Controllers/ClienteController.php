@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Http\Requests\ClienteRequest;
 
 class ClienteController extends Controller
 {
@@ -20,17 +21,9 @@ class ClienteController extends Controller
         return view('clientes.create');
     }
 
-    public function store(Request $request)
+    public function store(ClienteRequest $request)
     {
-        $request->validate([
-            'nome' => 'required',
-            'endereco' => 'required',
-            'cpf' => 'required|unique:clientes',
-            'telefone' => 'required',
-            'email' => 'required|email|unique:clientes',
-        ]);
-
-        Cliente::create($request->all());
+        Cliente::create($request->validated());
 
         return redirect()->route('clientes.index')
             ->with('success', 'Cliente criado com sucesso.');
@@ -50,23 +43,15 @@ class ClienteController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
-{
-    $cliente = Cliente::findOrFail($id);
+    public function update(ClienteRequest $request, string $id)
+    {
+        $cliente = Cliente::findOrFail($id);
 
-    $request->validate([
-        'nome' => 'required',
-        'endereco' => 'required',
-        'cpf' => 'required|unique:clientes,cpf,' . $cliente->id,
-        'telefone' => 'required',
-        'email' => 'required|email|unique:clientes,email,' . $cliente->id,
-    ]);
+        $cliente->update($request->validated());
 
-    $cliente->update($request->all());
-
-    return redirect()->route('clientes.index')
-        ->with('success', 'Cliente atualizado com sucesso.');
-}
+        return redirect()->route('clientes.index')
+            ->with('success', 'Cliente atualizado com sucesso.');
+    }
 
 
 
