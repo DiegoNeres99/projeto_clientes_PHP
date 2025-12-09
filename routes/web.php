@@ -1,5 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
 
-route('clientes', App\Http\Controllers\ClienteController::class);
+Route::resource('clientes', ClienteController::class);

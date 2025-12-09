@@ -22,7 +22,7 @@ class ClienteController extends Controller
 
     public function store(Request $request)
     {
-        $request->Validate([
+        $request->validate([
             'nome' => 'required',
             'endereco' => 'required',
             'cpf' => 'required|unique:clientes',
@@ -31,6 +31,7 @@ class ClienteController extends Controller
         ]);
 
         Cliente::create($request->all());
+
         return redirect()->route('clientes.index')
             ->with('success', 'Cliente criado com sucesso.');
     }
@@ -50,17 +51,23 @@ class ClienteController extends Controller
 
 
     public function update(Request $request, string $id)
-    {
-        $cliente = Cliente::findORFail($id);
+{
+    $cliente = Cliente::findOrFail($id);
 
-        $request->Validate([
-            'nome' => 'required',
-            'endereco' => 'required',
-            'cpf' => 'required|unique:clientes,cpf,' . $cliente->id,
-            'telefone' => 'required',
-            'email' => 'required|email|unique:clientes,email,' . $cliente->id,
-        ]);
-    }
+    $request->validate([
+        'nome' => 'required',
+        'endereco' => 'required',
+        'cpf' => 'required|unique:clientes,cpf,' . $cliente->id,
+        'telefone' => 'required',
+        'email' => 'required|email|unique:clientes,email,' . $cliente->id,
+    ]);
+
+    $cliente->update($request->all());
+
+    return redirect()->route('clientes.index')
+        ->with('success', 'Cliente atualizado com sucesso.');
+}
+
 
 
     public function destroy(string $id)
