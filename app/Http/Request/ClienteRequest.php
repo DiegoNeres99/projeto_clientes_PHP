@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class ClienteRequest extends FormRequest
             'email' => 'required|email|unique:clientes,email,' . $id,
         ];
     }
-
+    // Mensagens de erro personalizadas
     public function messages()
     {
         return [
