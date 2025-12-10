@@ -71,22 +71,8 @@
                             <label for="material" class="form-label">Material</label>
                             <input type="text" id="material" name="material" class="form-control"
                                 value="{{ old('material', $produto->material) }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="imagem" class="form-label">Nova Imagem</label>
-                            <input type="file" id="imagem" name="imagem" class="form-control">
-                        </div>
-
-                        {{-- Mostrar imagem atual --}}
-                        @if ($produto->imagem)
-                            <div class="mb-3">
-                                <p class="fw-bold">Imagem atual:</p>
-                                <img src="{{ asset('storage/' . $produto->imagem) }}" 
-                                     width="120" class="img-thumbnail rounded">
-                            </div>
-                        @endif
-
+                        </div>                     
+                        
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select id="status" name="status" class="form-control">

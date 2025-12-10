@@ -23,8 +23,7 @@ class ProdutoRequest extends FormRequest
             'estoque'   => 'nullable|integer|min:0',
             'categoria' => 'nullable|string',
             'tipo'      => 'nullable|string',
-            'material'  => 'nullable|string',
-            'imagem'    => 'nullable|image|max:2048',
+            'material'  => 'nullable|string',            
             'status' => 'required|in:ativo,inativo',
 
         ];
@@ -39,9 +38,7 @@ class ProdutoRequest extends FormRequest
             'preco.numeric'  => 'O preço deve ser um número.',
             'preco.min'      => 'O preço não pode ser negativo.',
             'estoque.integer' => 'O estoque deve ser um número inteiro.',
-            'estoque.min'     => 'O estoque não pode ser negativo.',
-            'imagem.image' => 'O arquivo deve ser uma imagem válida.',
-            'imagem.max'   => 'A imagem não pode passar de 2MB.',
+            'estoque.min'     => 'O estoque não pode ser negativo.',            
             'status.boolean' => 'O status deve ser verdadeiro ou falso.',
         ];
     }

@@ -72,12 +72,7 @@
                             <label for="material" class="form-label">Material</label>
                             <input type="text" id="material" name="material" class="form-control"
                                 value="{{ old('material') }}" placeholder="Ex: Algodão, cetim...">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="imagem" class="form-label">Imagem</label>
-                            <input type="file" id="imagem" name="imagem" class="form-control">
-                        </div>
+                        </div>                        
 
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
