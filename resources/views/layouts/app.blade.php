@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema</title>
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Ícones Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         body {
             background: #f4f6f9;
@@ -65,26 +67,45 @@
 </head>
 
 <body>
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
         <span class="navbar-brand fw-bold">
             Sistema de Clientes
         </span>
     </nav>
-    <!-- SIDEBAR BONITA -->
+
+    <!-- SIDEBAR -->
     <div class="sidebar">
+
         <a href="#"><i class="bi bi-cart3"></i> Vendas</a>
-        <a href="#"><i class="bi bi-box-seam"></i> Produtos</a>
-        <a href="#"><i class="bi bi-plus-circle"></i> Cadastro de Produtos</a>
+
+        <!-- PRODUTOS (INDEX) -->
+        <a href="{{ route('produtos.index') }}">
+            <i class="bi bi-box-seam"></i> Produtos
+        </a>
+
+        <!-- CADASTRAR PRODUTO -->
+        <a href="{{ route('produtos.create') }}">
+            <i class="bi bi-plus-circle"></i> Cadastro de Produtos
+        </a>
+
         <a href="#"><i class="bi bi-archive"></i> Estoque</a>
         <a href="#"><i class="bi bi-cash-coin"></i> Financeiro</a>
-        <a href="{{ route('clientes.index') }}"><i class="bi bi-people"></i> Clientes</a>
+
+        <!-- CLIENTES -->
+        <a href="{{ route('clientes.index') }}">
+            <i class="bi bi-people"></i> Clientes
+        </a>
+
     </div>
+
     <!-- CONTEÚDO PRINCIPAL -->
     <main class="content">
         @yield('content')
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
