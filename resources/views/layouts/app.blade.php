@@ -90,12 +90,15 @@
             <i class="bi bi-plus-circle"></i> Cadastro de Produtos
         </a>
 
-        <a href="#"><i class="bi bi-archive"></i> Estoque</a>
         <a href="#"><i class="bi bi-cash-coin"></i> Financeiro</a>
 
         <!-- CLIENTES -->
         <a href="{{ route('clientes.index') }}">
             <i class="bi bi-people"></i> Clientes
+        </a>
+
+        <a href="{{ route('clientes.create') }}">
+            <i class="bi bi-person-plus"></i> Cadastro de Clientes
         </a>
 
     </div>
@@ -108,4 +111,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
