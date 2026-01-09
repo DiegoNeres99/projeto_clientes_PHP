@@ -13,3 +13,4 @@ Route::get('/', function () {
 Route::resource('clientes', ClienteController::class);
 Route::resource('produtos', ProdutoController::class);
 Route::resource('vendas', VendaController::class);
+Route::patch('vendas/{venda}/finalizar', [VendaController::class, 'finalizar'])->name('vendas.finalizar');

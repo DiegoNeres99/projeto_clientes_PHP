@@ -119,6 +119,7 @@ class VendaController extends Controller
                 'desconto'        => $request->desconto ?? 0,
                 'acrescimo'       => $request->acrescimo ?? 0,
                 'observacoes'     => $request->observacoes,
+                'status'          => $request->status,
             ]);
 
             $venda->itens()->delete();
